@@ -88,3 +88,5 @@ tmp/
 
 # Sequelize CLI config (if you keep local overrides out of repo)
 .sequelizerc
+.env
+rollout-2026-06-01T13-59-24-019e81fa-e5bb-7212-a726-787c93586514.jsonl
