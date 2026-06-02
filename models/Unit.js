@@ -1,3 +1,25 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Unit:
+ *       type: object
+ *       properties:
+ *         unit_id:
+ *           type: integer
+ *         unit_name:
+ *           type: string
+ *         create_at:
+ *           type: string
+ *           format: date-time
+ *     UnitCreate:
+ *       type: object
+ *       required:
+ *         - unit_name
+ *       properties:
+ *         unit_name:
+ *           type: string
+ */
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 

@@ -4,12 +4,35 @@ import { sequelize } from './models/index.js';
 import catalogsRouter from './routes/catalogsRoute.js'
 import unitsRouter from './routes/unitsRoute.js'
 import productRouter from './routes/productsRoute.js'
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Swagger setup
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'TestShop API',
+      version: '1.0.0',
+      description: 'API documentation for TestShop',
+    },
+    servers: [
+      {
+        url: `http://localhost:${port}`,
+      },
+    ],
+  },
+  apis: ['./routes/*.js', './controllers/*.js', './models/*.js'],
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/catalogs', catalogsRouter)
 app.use("/units", unitsRouter)

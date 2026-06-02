@@ -1,3 +1,25 @@
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Catalog:
+ *       type: object
+ *       properties:
+ *         catalog_id:
+ *           type: integer
+ *         catalog_name:
+ *           type: string
+ *         create_at:
+ *           type: string
+ *           format: date-time
+ *     CatalogCreate:
+ *       type: object
+ *       required:
+ *         - catalog_name
+ *       properties:
+ *         catalog_name:
+ *           type: string
+ */
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 
